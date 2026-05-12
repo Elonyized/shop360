@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["user_email"] = $user["email"];
         $_SESSION["user_id"] = $user["id"];
 
-        header("Location: ../product.php");
+        header("Location: ../products.php");
         exit();
 
     } else {
