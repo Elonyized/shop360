@@ -1,12 +1,13 @@
 <?php
 // processes/customer_process.php
 
+session_start();
 require_once '../config/db_connect.php';
 require_once '../Classes/Customer.php';
 
 $customer = new Customer();
 
-$account_id = $_SESSION['account_id'] ?? null;
+$account_id = $_SESSION['account_id'] ?? $_SESSION['user_id'] ?? null;
 
 if (!$account_id) {
     $_SESSION['error'] = "Please login first!";
@@ -32,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $_SESSION['error'] = "Failed to update profile. Please try again.";
     }
+} else {
+    $_SESSION['error'] = "Invalid request.";
 }
 
 header("Location: ../customer_profile.php");

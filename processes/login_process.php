@@ -1,4 +1,5 @@
 <?php
+// processes/login_process.php
 
 session_start();
 
@@ -33,11 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user) {
 
-        $_SESSION["success"] = "Successfully logged in!";
+        //  IMPORTANT: Set these session variables
+        $_SESSION["account_id"] = $user["id"];     // Most important for profile
+        $_SESSION["user_id"]    = $user["id"];
         $_SESSION["user_email"] = $user["email"];
-        $_SESSION["user_id"] = $user["id"];
+        $_SESSION["success"]    = "Successfully logged in!";
 
-        header("Location: ../products.php");
+        header("Location: ../index.php");   // or ../products.php
         exit();
 
     } else {
@@ -47,3 +50,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 }
+?>

@@ -10,7 +10,7 @@ class Customer {
         $this->pdo = $pdo;
     }
 
-    // Get Profile + Email from accounts table
+    // Get Profile with Email from accounts table
     public function getProfile($account_id) {
         $sql = "SELECT c.*, a.email 
                 FROM customers c 
@@ -25,16 +25,15 @@ class Customer {
     // Save or Update Profile
     public function saveProfile($account_id, $data) {
         $sql = "INSERT INTO customers 
-                (account_id, first_name, last_name, phone, address, city, state, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+                (account_id, first_name, last_name, phone, address, city, state)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 ON DUPLICATE KEY UPDATE 
                     first_name = VALUES(first_name),
                     last_name = VALUES(last_name),
                     phone = VALUES(phone),
                     address = VALUES(address),
                     city = VALUES(city),
-                    state = VALUES(state),
-                    updated_at = NOW()";
+                    state = VALUES(state)";
 
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
