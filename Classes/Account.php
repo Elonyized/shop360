@@ -42,7 +42,7 @@ class Account {
      public function adminLogin($pdo, $email, $password) {
 
         // ⚠️ CHANGE THIS to the email you registered in your accounts table
-        $admin_email = "talktougwaibb@gmail.com";
+        $admin_email = "priestadakole@gmail.com";
 
         if ($email !== $admin_email) {
             return false;
@@ -72,7 +72,7 @@ class Account {
         }
 
         if (empty($_SESSION['admin_id']) || empty($_SESSION['is_admin'])) {
-            header("Location: login.php");
+            header("Location:admin_login.php");
             exit;
         }
     }

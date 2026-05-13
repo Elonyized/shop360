@@ -5,7 +5,7 @@ class Product {
 
         $sql = "SELECT * FROM products WHERE in_stock > 0";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+        $stmt->execute([]);
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
