@@ -78,7 +78,7 @@ session_start();
                     Register
                 </a>
                 <div class="login-back">
-            <a href="../index.php">← Back to Trinity Mart</a>
+            <a href="../index.php">← HOME</a>
                 </div>
 
             </small>

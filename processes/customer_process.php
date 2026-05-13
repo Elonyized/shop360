@@ -1,7 +1,6 @@
 <?php
 // processes/customer_process.php
 
-require_once '../includes/session.php';
 require_once '../config/db_connect.php';
 require_once '../Classes/Customer.php';
 
