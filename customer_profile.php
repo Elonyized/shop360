@@ -69,6 +69,10 @@ include "includes/header.php";
                             <i class="bi bi-check-circle me-2"></i> Save Changes
                         </button>
                     </div>
+                    <div class="login-back">
+                        <a href="../index.php">← Back to Trinity Mart</a>
+                    </div>
+
                 </form>
 
             </div>
