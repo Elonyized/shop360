@@ -81,7 +81,12 @@ session_start();
                             <a href="#"><i class="bi bi-cart3"></i><h6>Cart</h6></a>
                         </li>
                         <li>
-                            <a href="profile.php"><i class="bi bi-person-circle"></i><h6>Profile</h6></a>
+                            <a href="customer_profile.php"><i class="bi bi-person-circle"></i><h6>Profile</h6></a>
+                        </li>
+
+                        <li>
+                            <a href><i class="bi bi-bell-fill"></i>
+                            <h6>Notifications</h6>
                         </li>
                     </ul>
                 </div>
