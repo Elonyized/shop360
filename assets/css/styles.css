@@ -208,35 +208,34 @@ a{
 .profile-card .form-control,
 .profile-card textarea.form-control,
 .profile-card .form-select {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(199, 125, 255, 0.4) !important;
-    color: white !important;
+    background: white !important;
+    border: 1px solid #5c09c9 !important;
+    color: black !important;
     border-radius: 12px !important;
 }
 
 .profile-card .form-control:focus,
 .profile-card textarea.form-control:focus {
     background: rgba(255, 255, 255, 0.15) !important;
-    border-color: #8E2DE2 !important;
-    box-shadow: 0 0 0 0.2rem rgba(142, 45, 226, 0.5) !important;
-    color: white !important;
+    border-color: #5c09c9 !important;
+    box-shadow: #5c09c9 !important;
+    color: black !important;
 }
 
 .profile-card .form-label {
-    color: #C77DFF !important;
+    color: #5c09c9 !important;
     font-weight: 500;
 }
 
 /* Button */
 .btn-primary-custom {
-    background: linear-gradient(135deg, #8E2DE2, #C77DFF) !important;
+    background: #5c09c9 !important;
     border: none !important;
     color: white !important;
 }
 
 .btn-primary-custom:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(142, 45, 226, 0.5) !important;
+    color: #FF7A00 !important;
 }
 
 /* FOOTER */
