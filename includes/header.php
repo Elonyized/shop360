@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +10,10 @@ session_start();
 
     <link rel="stylesheet" href="/SHOP360/assets/css/styles.css">
     <link rel="stylesheet" href="/SHOP360/assets/css/admin_dashboard.css">
+    <!-- <link rel="stylesheet" href="/SHOP360/assets/css/index.css"> -->
+    <!-- <link rel="stylesheet" href="/SHOP360/assets/css/contact.css"> -->
+    <!-- <link rel="stylesheet" href="/SHOP360/assets/css/about_us.css"> -->
+
 
 
 </head>

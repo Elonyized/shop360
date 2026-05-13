@@ -72,7 +72,7 @@ class Account {
         }
 
         if (empty($_SESSION['admin_id']) || empty($_SESSION['is_admin'])) {
-            header("Location:admin_login.php");
+            header("Location: ../admin_login.php");
             exit;
         }
     }

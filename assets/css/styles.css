@@ -456,10 +456,6 @@ a{
         gap: 20px;
     }
 
-}
-
-@media(max-width: 600px){
-
     .logo-text h2{
         font-size: 22px;
     }
@@ -476,17 +472,9 @@ a{
         width: 140px;
     }
 
-}
-
-@media(max-width: 991px){
-
     .footer-wrapper{
         grid-template-columns: 1fr 1fr;
     }
-
-}
-
-@media(max-width: 600px){
 
     .footer-wrapper{
         grid-template-columns: 1fr;
