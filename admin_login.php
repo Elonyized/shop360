@@ -9,7 +9,7 @@ session_start();
 
 // If already logged in as admin, skip login page
 if (!empty($_SESSION['is_admin'])) {
-    header("Location: dashboard.php");
+    header("Location: ../admin_dashboard.php");
     exit;
 }
 

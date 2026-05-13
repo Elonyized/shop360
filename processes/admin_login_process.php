@@ -18,8 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['admin_id']    = $result['id'];       // accounts.id
         $_SESSION['admin_email'] = $result['email'];    // accounts.email
         $_SESSION['is_admin']    = true;
-
-        header("Location: ../admin_dashbaoard.php");
+        header("Location: ../admin_dashboard.php");
         exit;
 
     } else {
