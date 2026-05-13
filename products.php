@@ -1,4 +1,10 @@
 <?php
+
+if (isset($_SESSION['success'])) {
+    $message = '<div class="alert alert-success">'.$_SESSION['success'].'</div>';
+    unset($_SESSION['success']);
+}
+
 include "includes/header.php";
 
 require_once 'config/db_connect.php';
@@ -6,6 +12,9 @@ require_once 'classes/Product.php';
 $product = new product();
 $products = $product->getALLproducts($pdo);
 ?>
+
+
+
 
    <div class="container mt-5">
     <div class="row g-4">

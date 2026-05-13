@@ -1,24 +1,20 @@
 <?php
-// ==================== LOGIC SECTION (Top of customer_profile.php) ====================
-require_once 'config/db_connect.php';
-require_once 'Classes/Customer.php';
+// processes/customer_process.php
+
+require_once '../includes/session.php';
+require_once '../config/db_connect.php';
+require_once '../Classes/Customer.php';
 
 $customer = new Customer();
 
-$account_id = $_SESSION['account_id'] ?? $_SESSION['user_id'] ?? $_SESSION['customer_id'] ?? null;
+$account_id = $_SESSION['account_id'] ?? null;
 
-// Redirect if not logged in
 if (!$account_id) {
-    header("Location: login.php");
+    $_SESSION['error'] = "Please login first!";
+    header("Location: ../login.php");
     exit();
 }
 
-// Fetch current profile data
-$profile = $customer->getProfile($account_id);
-
-$message = '';
-
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $data = [
@@ -31,12 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     $result = $customer->saveProfile($account_id, $data);
-    
+
     if ($result) {
-        $message = '<div class="alert alert-success alert-dismissible fade show">✅ Profile updated successfully!</div>';
-        $profile = $customer->getProfile($account_id); // Refresh
+        $_SESSION['success'] = "Profile updated successfully!";
     } else {
-        $message = '<div class="alert alert-danger alert-dismissible fade show">❌ Failed to update profile.</div>';
+        $_SESSION['error'] = "Failed to update profile. Please try again.";
     }
 }
+
+header("Location: ../customer_profile.php");
+exit();
 ?>
