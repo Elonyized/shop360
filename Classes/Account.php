@@ -38,4 +38,42 @@ class Account {
 
         return false;
     }
+
+     public function adminLogin($pdo, $email, $password) {
+
+        // ⚠️ CHANGE THIS to the email you registered in your accounts table
+        $admin_email = "talktougwaibb@gmail.com";
+
+        if ($email !== $admin_email) {
+            return false;
+        }
+
+        $sql  = "SELECT * FROM accounts WHERE email = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$email]);
+
+        $account = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$account) {
+            return false;
+        }
+
+        if (password_verify($password, $account["password"])) {
+            return $account;
+        }
+
+        return false;
+    }
+
+    public function requireAdmin() {
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (empty($_SESSION['admin_id']) || empty($_SESSION['is_admin'])) {
+            header("Location: login.php");
+            exit;
+        }
+    }
 }

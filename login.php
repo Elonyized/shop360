@@ -77,6 +77,10 @@ session_start();
                 <a href="register.php" class="text-decoration-none fw-semibold" style="color:#4b0082;">
                     Register
                 </a>
+                <div class="login-back">
+            <a href="../index.php">← Back to Trinity Mart</a>
+                </div>
+
             </small>
 
         </div>

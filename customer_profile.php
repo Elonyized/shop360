@@ -85,6 +85,10 @@ if (isset($_SESSION['error'])) {
                             Save Changes
                         </button>
                     </div>
+                    <div class="login-back">
+                        <a href="../index.php">← Back to Trinity Mart</a>
+                    </div>
+
                 </form>
 
             </div>
