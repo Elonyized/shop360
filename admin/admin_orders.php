@@ -1,6 +1,8 @@
 <?php 
+require_once '../config/db_connect.php';
 require_once 'includes/auth_check.php'; 
-require_once 'includes/admin_header.php'; 
+require_once 'includes/admin_header.php';
+require_once '../Classes/Order.php'; 
 ?>
 
 <h1 class="text-3xl font-bold text-purple-700 mb-6">Manage Orders</h1>
