@@ -32,14 +32,41 @@ class Order {
     }
 
     public function getRecentOrders($limit = 5) {
-        $sql = "SELECT o.*, a.username as customer_name, p.product_name 
+    $sql = "SELECT o.*, a.username as customer_name, p.product_name 
+            FROM orders o 
+            LEFT JOIN accounts a ON o.account_id = a.id 
+            LEFT JOIN products p ON o.product_id = p.id 
+            ORDER BY o.order_date DESC LIMIT $limit";
+
+    $stmt = $this->pdo->query($sql);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// public function getOrdersByUser($account_id){
+//     $sql = "SELECT o.*, p.product_name 
+//             FROM orders o
+//             LEFT JOIN products p ON o.product_id = p.id
+//             WHERE o.account_id = ?
+//             ORDER BY o.created_at DESC";
+
+//     $stmt = $this->pdo->prepare($sql);
+//     $stmt->execute([$account_id]);
+
+//     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+// }
+
+
+public function getCustomerOrders($account_id) {
+        $sql = "SELECT o.*, p.product_name 
                 FROM orders o 
-                LEFT JOIN accounts a ON o.account_id = a.id 
                 LEFT JOIN products p ON o.product_id = p.id 
-                ORDER BY o.order_date DESC LIMIT ?";
+                WHERE o.account_id = ? 
+                ORDER BY o.created_at DESC";
         $stmt = $this->pdo->prepare($sql);
-        // $stmt->execute([$limit]);
+        $stmt->execute([$account_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
 }
 ?>

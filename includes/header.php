@@ -97,18 +97,3 @@
         </div>
     </header>
 
-    <!-- CATEGORY BAR -->
-    <section class="category-bar">
-        <div class="container">
-            <div class="category-wrapper">
-                <a href="#">Fashion</a>
-                <a href="#">Electronics</a>
-                <a href="#">Groceries</a>
-                <a href="#">Beauty</a>
-                <a href="#">Sports</a>
-                <a href="#">Home & Living</a>
-            </div>
-        </div>
-    </section>
-
-
