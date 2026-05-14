@@ -1,10 +1,7 @@
 <?php
-
 // customer_profile.php
 
 session_start();
-
-include "includes/header.php";
 require_once 'config/db_connect.php';
 require_once 'Classes/Customer.php';
 
@@ -18,7 +15,6 @@ if (!$account_id) {
     exit();
 }
 
-// Fetch profile data
 $profile = $customer->getProfile($account_id);
 
 $message = '';
@@ -32,14 +28,54 @@ if (isset($_SESSION['error'])) {
 }
 ?>
 
+<?php include "includes/header.php"; ?>
 
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
+<div class="container-fluid py-4">
+    <div class="row g-4">
+        <!-- Sidebar -->
+        <div class="col-lg-2">
+           <aside class="sidebar">
+                <div class="sidebar-brand">
+                    <div class="brand-icon">TM</div>
+                    <div class="brand-text">
+                        <strong>Trinity Mart</strong>
+                        <span>Customer Area</span>
+                    </div>
+                </div>
+
+                <nav>
+                    <a href="customer_dashboard.php" class="nav-link active">
+                        <i class="fas fa-th-large"></i> Dashboard
+                    </a>
+                    <a href="customer_profile.php" class="nav-link">
+                        <i class="fas fa-user"></i> My Profile
+                    </a>
+                    <a href="customer_orders.php" class="nav-link">
+                        <i class="fas fa-shopping-bag"></i> My Orders
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-heart"></i> Wishlist
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-map-marker-alt"></i> Addresses
+                    </a>
+
+                    <div class="nav-section-label mt-4">Account</div>
+                    <a href="../index.php" class="nav-link" target="_blank">
+                        <i class="fas fa-store"></i> Browse Store
+                    </a>
+                    <a href="../logout.php" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </nav>
+            </aside>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-lg-10">
 
             <div class="card profile-card p-5">
-
-                <h2 class="text-white fw-bold mb-4 text-center">My Profile</h2>
+                <h2 class="text-white fw-bold mb-4">My Profile</h2>
                 
                 <?= $message; ?>
 
@@ -95,8 +131,8 @@ if (isset($_SESSION['error'])) {
                         </button>
                     </div>
                 </form>
-
             </div>
+
         </div>
     </div>
 </div>

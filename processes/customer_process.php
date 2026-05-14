@@ -37,6 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['error'] = "Invalid request.";
 }
 
-header("Location: ../customer_profile.php");
+header("Location: ../customer_dashboard.php");
 exit();
 ?>
