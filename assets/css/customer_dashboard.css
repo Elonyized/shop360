@@ -1,0 +1,57 @@
+/* CUSTOMER DASHBOARD */
+
+.account-sidebar{
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.account-sidebar .list-group-item{
+    border: none;
+    padding: 14px 18px;
+    font-weight: 500;
+    color: #333;
+    transition: 0.3s;
+}
+
+.account-sidebar .list-group-item:hover{
+    background: rgba(106, 0, 244, 0.08);
+    color: #6A00F4;
+}
+
+.account-sidebar .list-group-item.active{
+    background: #6A00F4;
+    color: #fff;
+}
+
+.account-card{
+    border-radius: 16px;
+    background: #fff;
+}
+
+.account-card h4{
+    color: #6A00F4;
+}
+
+/* BUTTON */
+.btn-primary{
+    background: #6A00F4;
+    border: none;
+}
+
+.btn-primary:hover{
+    background: #FF7A00;
+}
+
+/* TABLE */
+.table thead{
+    background: #f3f3f3;
+}
+
+.badge-completed{
+    background: #28a745;
+}
+
+.badge-pending{
+    background: #ffc107;
+    color: #000;
+}

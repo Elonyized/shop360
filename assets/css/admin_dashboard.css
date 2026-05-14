@@ -14,6 +14,7 @@ body {
 
 /* Layout */
 .admin-layout {
+    position: relative;
     display: flex;
     min-height: 100vh;
 }
@@ -21,9 +22,9 @@ body {
 .sidebar {
     width: 260px;
     background: #1a1238;
-    padding: 20px 0;
+    padding: 25px ;
     border-right: 1px solid #3a2a6b;
-    position: fixed;
+    position: absolute;
     height: 100vh;
     overflow-y: auto;
 }
