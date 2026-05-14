@@ -34,7 +34,7 @@ if (isset($_SESSION['error'])) {
     <div class="row g-4">
         <!-- Sidebar -->
         <div class="col-lg-2">
-           <aside class="sidebar">
+            <aside class="sidebar">
                 <div class="sidebar-brand">
                     <div class="brand-icon">TM</div>
                     <div class="brand-text">

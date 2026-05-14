@@ -21,28 +21,56 @@ class Customer {
     }
 
     public function saveProfile($account_id, $data) {
-        $sql = "INSERT INTO customers 
-                (account_id, first_name, last_name, phone, address, city, state, created_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, NOW())
-                ON DUPLICATE KEY UPDATE 
-                    first_name = VALUES(first_name),
-                    last_name = VALUES(last_name),
-                    phone = VALUES(phone),
-                    address = VALUES(address),
-                    city = VALUES(city),
-                    state = VALUES(state),
-                    created_at = NOW()";
+        try {
+            $existing = $this->getProfile($account_id);
 
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([
-            $account_id,
-            $data['first_name'],
-            $data['last_name'],
-            $data['phone'],
-            $data['address'],
-            $data['city'],
-            $data['state']
-        ]);
+            if ($existing) {
+                // UPDATE
+                $sql = "UPDATE customers SET 
+                        first_name = ?,
+                        last_name = ?,
+                        phone = ?,
+                        address = ?,
+                        city = ?,
+                        state = ?
+                        WHERE account_id = ?";
+                
+                $stmt = $this->pdo->prepare($sql);
+                $success = $stmt->execute([
+                    $data['first_name'],
+                    $data['last_name'],
+                    $data['phone'],
+                    $data['address'],
+                    $data['city'],
+                    $data['state'],
+                    $account_id
+                ]);
+            } else {
+                // INSERT
+                $sql = "INSERT INTO customers 
+                        (account_id, first_name, last_name, phone, address, city, state)
+                        VALUES (?, ?, ?, ?, ?, ?, ?)";
+                
+                $stmt = $this->pdo->prepare($sql);
+                $success = $stmt->execute([
+                    $account_id,
+                    $data['first_name'],
+                    $data['last_name'],
+                    $data['phone'],
+                    $data['address'],
+                    $data['city'],
+                    $data['state']
+                ]);
+            }
+
+            return $success;
+
+        } catch (PDOException $e) {
+            // Show the real error to user
+            $_SESSION['error'] = "Database Error: " . $e->getMessage();
+            error_log("Customer Save Error: " . $e->getMessage());
+            return false;
+        }
     }
 }
 ?>

@@ -42,7 +42,7 @@ $products = $admin->getAllProducts();
         </thead>
         <tbody class="divide-y">
             <?php foreach($products as $product): 
-                $instock = $product['instock'] > 0;
+                $instock = $product['in_stock'] > 0;
             ?>
             <tr class="hover:bg-gray-50">
                 <td class="p-4"><?= $product['id'] ?></td>

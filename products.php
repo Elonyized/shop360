@@ -1,50 +1,55 @@
 <?php
+// products.php
 
-if (isset($_SESSION['success'])) {
-    $message = '<div class="alert alert-success">'.$_SESSION['success'].'</div>';
-    unset($_SESSION['success']);
-}
-
-include "includes/header.php";
-
+session_start();
 require_once 'config/db_connect.php';
-require_once 'classes/Product.php';
-$product = new product();
-$products = $product->getALLproducts($pdo);
+require_once 'Classes/Product.php';
+
+$productObj = new Product();
+$products = $productObj->getAllProducts();
 ?>
 
+<?php include "includes/header.php"; ?>
 
+<div class="container py-5">
+    <h1 class="text-white mb-4">Our Products</h1>
 
-
-   <div class="container mt-5">
     <div class="row g-4">
+        <?php if (empty($products)): ?>
+            <div class="col-12 text-center">
+                <p class="text-light">No products available at the moment.</p>
+            </div>
+        <?php else: ?>
+            <?php foreach ($products as $product): ?>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 bg-dark text-white border-0">
 
-        <?php foreach($products as $product): ?>
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
-                    <div class="card-body p-4 d-flex flex-column">
+                        <?php 
+                        $featuredImg = $productObj->getFeaturedImage($product['id']);
+                        ?>
+                        <img src="<?= htmlspecialchars($featuredImg ?? 'assets/image/no-image.png') ?>" 
+                             class="card-img-top" 
+                             alt="<?= htmlspecialchars($product['product_name']) ?>"
+                             style="height: 220px; object-fit: cover;">
 
-                        <h5 class="card-title fw-semibold mb-2"><?= htmlspecialchars($product['product_name']) ?></h5>
-                        
-                        <p class="text-muted small mb-3"><?= htmlspecialchars($product['product_category']) ?></p>
-                        
-                        <p class="card-text flex-grow-1 text-secondary"><?= htmlspecialchars($product['product_description']) ?></p>
-                        
-                        <h4 class="fw-bold text-dark mt-3 mb-4"> ₦<?= number_format($product['product_price'], 2) ?></h4>
-                        
-                    </div>
-                    
-                    <div class="card-footer">
-                        <a href="order.php?id=<?= $product['id'] ?? '' ?>" class="btn btn-secondary">Order
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><?= htmlspecialchars($product['product_name']) ?></h5>
+                            <p class="text-success fw-bold mb-2">$<?= number_format($product['price'], 2) ?></p>
+                            
+                            <p class="card-text text-light small flex-grow-1">
+                                <?= htmlspecialchars(substr($product['description'] ?? '', 0, 85)) ?>...
+                            </p>
 
-
-                        <a href="product_details.php?id=<?= $product['id'] ?? '' ?>"class="btn btn-primary">View Details</a>
+                            <a href="product_details.php?id=<?= $product['id'] ?>" 
+                               class="btn btn-primary mt-3">
+                                View Details
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 </div>
 
-<?php include "includes/footer.php";?>
+<?php include "includes/footer.php"; ?>

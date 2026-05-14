@@ -31,12 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result) {
         $_SESSION['success'] = "Profile updated successfully!";
     } else {
-        $_SESSION['error'] = "Failed to update profile. Please try again.";
+        $_SESSION['error'] = "Failed to save profile. Please try again.";
     }
-} else {
-    $_SESSION['error'] = "Invalid request.";
 }
 
-header("Location: ../customer_dashboard.php");
+header("Location: ../customer_profile.php");
 exit();
 ?>
