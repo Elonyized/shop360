@@ -11,7 +11,8 @@ require_once 'includes/admin_header.php';
             <tr>
                 <th class="p-4 text-left">Customer ID</th>
                 <th class="p-4 text-left">Account ID</th>
-                <th class="p-4 text-left">Full Name</th>
+                <th class="p-4 text-left">First Name</th>
+                <th class="p-4 text-left">Last Name</th>
                 <th class="p-4 text-left">Phone</th>
                 <th class="p-4 text-left">City</th>
                 <th class="p-4 text-left">State</th>
@@ -25,9 +26,12 @@ require_once 'includes/admin_header.php';
             ?>
             <tr class="border-b hover:bg-gray-50">
                 <td class="p-4"><?= $customer['id'] ?></td>
-                <td class="p-4"><?= $customer['account_Id'] ?></td>
+                <td class="p-4"><?= $customer['account_id'] ?></td>
                 <td class="p-4 font-medium">
-                    <?= htmlspecialchars($customer['first name'] ?? '') . ' ' . htmlspecialchars($customer['last name'] ?? '') ?>
+                    <?= htmlspecialchars($customer['first_name'] ?? '') . ' ' . htmlspecialchars($customer['last name'] ?? '') ?>
+                </td>
+                <td class="p-4 font-medium">
+                    <?= htmlspecialchars($customer['last_name'] ?? '') . ' ' . htmlspecialchars($customer['last name'] ?? '') ?>
                 </td>
                 <td class="p-4"><?= htmlspecialchars($customer['phone'] ?? 'N/A') ?></td>
                 <td class="p-4"><?= htmlspecialchars($customer['city'] ?? 'N/A') ?></td>

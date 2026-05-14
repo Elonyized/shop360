@@ -21,7 +21,7 @@ class Admin {
 
     // Get All Products
     public function getAllProducts() {
-        $stmt = $this->pdo->query("SELECT * FROM products ORDER BY id DESC");
+        $stmt = $this->pdo->query("SELECT * FROM products ORDER BY id ASC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

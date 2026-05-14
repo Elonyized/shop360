@@ -65,7 +65,9 @@ $orders  = $orderObj->getCustomerOrders($account_id);
 
         <!-- Main Content -->
         <div class="col-lg-10">
-            <h1 class="text-white mb-4">Welcome back, <?= htmlspecialchars($profile['first_name'] ?? 'Customer') ?>!</h1>
+            <h1 class="text-white mb-2">
+                Welcome back, <?= htmlspecialchars($profile['first_name'] ?? $profile['last_name'] ?? 'Customer') ?>!
+            </h1>
 
             <div class="row g-4">
                 <div class="col-md-4">
