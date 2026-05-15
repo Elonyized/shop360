@@ -2,8 +2,8 @@
 // place_order.php
 
 session_start();
-require_once '../config/db_connect.php';
-require_once '../Classes/Product.php';
+require_once 'config/db_connect.php';
+require_once 'Classes/Product.php';
 
 $productObj = new Product();
 
