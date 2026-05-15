@@ -3,7 +3,8 @@
 
 session_start();
 require_once 'config/db_connect.php';
-require_once 'Classes/Product.php';
+// require_once 'Classes/Product.php';
+require_once 'processes/place_order_process.php';
 
 $productObj = new Product();
 
@@ -83,8 +84,20 @@ $featured_image = $productObj->getFeaturedImage($product_id);
 
             <div class="mt-4">
                 <?php if (isset($_SESSION['account_id']) || isset($_SESSION['user_id'])): ?>
-                    <a href="processes/place_order_process.php?product_id=<?= $product_id ?>" 
-                       class="btn btn-success btn-lg w-100">Place Order</a>
+                   <form method="GET" action="processes/place_order_process.php">
+            <input type="hidden" name="product_id" value="<?= $product_id ?>">
+    
+            <div class="mb-3">
+            <label class="text-white">Quantity:</label>
+            <input type="number" name="quantity" value="1" min="1" 
+               max="<?= $product['in_stock'] ?? 10 ?>" 
+               class="form-control w-50 d-inline">
+            </div>
+
+        <button type="submit" class="btn btn-success btn-lg w-100">
+        Place Order
+        </button>
+        </form>
                 <?php else: ?>
                     <a href="login.php" class="btn btn-warning btn-lg w-100">Login to Place Order</a>
                 <?php endif; ?>
