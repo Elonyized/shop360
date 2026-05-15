@@ -58,7 +58,7 @@ class Order {
         $sql = "SELECT o.*, p.product_name, p.product_price 
                 FROM orders o 
                 LEFT JOIN products p ON o.product_id = p.id 
-                WHERE o.customer_id = ? 
+                WHERE o.account_id = ? 
                 ORDER BY o.created_at DESC";
         
         $stmt = $this->pdo->prepare($sql);
