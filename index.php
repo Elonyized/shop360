@@ -125,10 +125,10 @@ include "includes/header.php";
             <div class="col-md-6 col-lg-3">
                 <div class="product-card">
                     <div class="product-image p-4 text-center bg-light">
-                        <img src="/SHOP360/assets/image/watch.png" class="img-fluid" alt="Smart Watch" style="height: 180px; object-fit: contain;">
+                        <img src="assets/image/business leadership guide 3.jpg" class="img-fluid" alt="Smart Watch" style="height: 180px; object-fit: contain;">
                     </div>
                     <div class="product-details p-4">
-                        <h5 class="fw-semibold">Smart Watch Series 9</h5>
+                        <h5 class="fw-semibold">Business Leadership Guide</h5>
                         <p class="text-danger fw-bold fs-4 mb-1">$199.99</p>
                         <div class="text-warning">
                             ★★★★★
@@ -144,10 +144,10 @@ include "includes/header.php";
             <div class="col-md-6 col-lg-3">
                 <div class="product-card">
                     <div class="product-image p-4 text-center bg-light">
-                        <img src="/SHOP360/assets/image/shoe.png" class="img-fluid" alt="Sneakers" style="height: 180px; object-fit: contain;">
+                        <img src="assets/image/classic white sneaker 1.jpg" class="img-fluid" alt="Sneakers" style="height: 180px; object-fit: contain;">
                     </div>
                     <div class="product-details p-4">
-                        <h5 class="fw-semibold">Men's White Sneakers</h5>
+                        <h5 class="fw-semibold">Classic White Sneaker</h5>
                         <p class="text-danger fw-bold fs-4 mb-1">$79.99</p>
                         <div class="text-warning">
                             ★★★★★
@@ -163,7 +163,7 @@ include "includes/header.php";
             <div class="col-md-6 col-lg-3">
                 <div class="product-card">
                     <div class="product-image p-4 text-center bg-light">
-                        <img src="/SHOP360/assets/image/headphone.png" class="img-fluid" alt="Headphones" style="height: 180px; object-fit: contain;">
+                        <img src="assets/image/wireless bluetooth 1.jpg" class="img-fluid" alt="Headphones" style="height: 180px; object-fit: contain;">
                     </div>
                     <div class="product-details p-4">
                         <h5 class="fw-semibold">Wireless Headphones</h5>
@@ -182,10 +182,10 @@ include "includes/header.php";
             <div class="col-md-6 col-lg-3">
                 <div class="product-card">
                     <div class="product-image p-4 text-center bg-light">
-                        <img src="/SHOP360/assets/image/bag.png" class="img-fluid" alt="Backpack" style="height: 180px; object-fit: contain;">
+                        <img src="assets/image/women handbag 2.jpg" class="img-fluid" alt="Backpack" style="height: 180px; object-fit: contain;">
                     </div>
                     <div class="product-details p-4">
-                        <h5 class="fw-semibold">Travel Backpack</h5>
+                        <h5 class="fw-semibold">Women's Handbag</h5>
                         <p class="text-danger fw-bold fs-4 mb-1">$49.99</p>
                         <div class="text-warning">
                             ★★★★★
