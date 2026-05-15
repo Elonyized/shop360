@@ -3,8 +3,8 @@
 
 session_start();
 require_once 'config/db_connect.php';
-// require_once 'Classes/Product.php';
-require_once 'processes/place_order_process.php';
+require_once 'Classes/Product.php';
+// require_once 'processes/place_order_process.php';
 
 $productObj = new Product();
 

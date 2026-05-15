@@ -14,6 +14,8 @@ $products = $productObj->getAllProducts();
 <div class="container py-5">
     <h1 class="text-white mb-4">Our Products</h1>
 
+     <a href="index.php" class="btn btn-secondary mb-4">← Back to Home</a>
+
     <div class="row g-4">
         <?php if (empty($products)): ?>
             <div class="col-12 text-center">
