@@ -50,7 +50,7 @@ class Order {
         $sql = "SELECT o.*, p.product_name, p.product_price 
                 FROM orders o 
                 LEFT JOIN products p ON o.product_id = p.id 
-                WHERE o.customer_id = ? 
+                WHERE o.account_id = ? 
                 ORDER BY o.created_at DESC";
         
         $stmt = $this->pdo->prepare($sql);
@@ -61,7 +61,7 @@ class Order {
     // Place New Order
     public function placeOrder($customer_id, $product_id, $quantity, $total_amount, $shipping_address, $payment_type) {
         $sql = "INSERT INTO orders 
-                (customer_id, product_id, quantity, total_amount, shipping_address, payment_type, status, created_at) 
+                (account_id, product_id, quantity, total_amount, shipping_address, payment_type, status, created_at) 
                 VALUES (?, ?, ?, ?, ?, ?, 'pending', NOW())";
         
         $stmt = $this->pdo->prepare($sql);

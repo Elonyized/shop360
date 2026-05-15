@@ -26,18 +26,22 @@ $products = $productObj->getAllProducts();
 
                         <?php 
                         $featuredImg = $productObj->getFeaturedImage($product['id']);
+
+                            $imageSrc = $featuredImg 
+                                ? 'assets/image/' . $featuredImg 
+                                : 'assets/image/no-image.jpg';
                         ?>
-                        <img src="<?= htmlspecialchars($featuredImg ?? 'assets/image/no-image.png') ?>" 
-                             class="card-img-top" 
-                             alt="<?= htmlspecialchars($product['product_name']) ?>"
-                             style="height: 220px; object-fit: cover;">
+                            <img src="<?= htmlspecialchars($imageSrc) ?>" 
+                            class="card-img-top" 
+                            alt="<?= htmlspecialchars($product['product_name']) ?>"
+                            style="height: 220px; object-fit: cover;">
 
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title"><?= htmlspecialchars($product['product_name']) ?></h5>
-                            <p class="text-success fw-bold mb-2">$<?= number_format($product['price'], 2) ?></p>
+                            <p class="text-success fw-bold mb-2">$<?= number_format($product['product_price'], 2) ?></p>
                             
                             <p class="card-text text-light small flex-grow-1">
-                                <?= htmlspecialchars(substr($product['description'] ?? '', 0, 85)) ?>...
+                                <?= htmlspecialchars(substr($product['product_description'] ?? '', 0, 85)) ?>...
                             </p>
 
                             <a href="product_details.php?id=<?= $product['id'] ?>" 
