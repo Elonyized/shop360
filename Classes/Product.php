@@ -12,7 +12,7 @@ class Product {
 
     // Get All Products - Fixed for your table
     public function getAllProducts() {
-        $sql = "SELECT * FROM products ORDER BY id DESC";   
+        $sql = "SELECT * FROM products ORDER BY id ASC";   // Using id instead of created_at
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

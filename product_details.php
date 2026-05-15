@@ -37,11 +37,19 @@ $featured_image = $productObj->getFeaturedImage($product_id);
 
             <!-- Main Featured Image -->
             <div class="card mb-4 shadow">
+                <?php
+                $mainImage = $featured_image 
+                    ? 'assets/image/' . $featured_image 
+                    : (!empty($images[0]['image_path']) 
+                        ? 'assets/image/' . $images[0]['image_path'] 
+                        : 'assets/image/no-image.jpg');
+                ?>
+
                 <img id="mainImage" 
-                     src="<?= htmlspecialchars($featured_image ?? ($images[0]['image_path'] ?? 'assets/image/no-image.png')) ?>" 
-                     class="card-img-top" 
-                     alt="<?= htmlspecialchars($product['product_name']) ?>"
-                     style="height: 450px; object-fit: contain; background:#f8f9fa;">
+                    src="<?= htmlspecialchars($mainImage) ?>" 
+                    class="card-img-top" 
+                    alt="<?= htmlspecialchars($product['product_name']) ?>"
+                    style="height: 450px; object-fit: contain; background:#f8f9fa;">
             </div>
 
             <!-- Thumbnail Gallery -->
@@ -50,7 +58,7 @@ $featured_image = $productObj->getFeaturedImage($product_id);
                 <div class="row g-3">
                     <?php foreach($images as $img): ?>
                         <div class="col-3">
-                            <img src="<?= htmlspecialchars($img['image_path']) ?>" 
+                            <img src="<?= htmlspecialchars('assets/image/' . $img['image_path']) ?>" 
                                  class="img-thumbnail"
                                  style="height: 100px; object-fit: cover; cursor: pointer;"
                                  onclick="document.getElementById('mainImage').src = this.src">
@@ -63,14 +71,14 @@ $featured_image = $productObj->getFeaturedImage($product_id);
         <!-- Product Information -->
         <div class="col-lg-6">
             <h2 class="text-white"><?= htmlspecialchars($product['product_name']) ?></h2>
-            <h4 class="text-success fw-bold">$<?= number_format($product['price'], 2) ?></h4>
+            <h4 class="text-success fw-bold">$<?= number_format($product['product_price'], 2) ?></h4>
             
-            <p><strong>Category:</strong> <?= htmlspecialchars($product['category'] ?? 'N/A') ?></p>
+            <p><strong>Category:</strong> <?= htmlspecialchars($product['product_category'] ?? 'N/A') ?></p>
             
             <hr>
             <h5 class="text-white">Description</h5>
             <p class="lead text-light">
-                <?= nl2br(htmlspecialchars($product['description'] ?? '')) ?>
+                <?= nl2br(htmlspecialchars($product['product_description'] ?? '')) ?>
             </p>
 
             <div class="mt-4">
