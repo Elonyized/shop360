@@ -1,8 +1,8 @@
 <?php
 // processes/place_order_process.php
 
-require_once 'config/db_connect.php';
-require_once 'Classes/Order.php';
+require_once '../config/db_connect.php';
+require_once '../Classes/Order.php';
 
 $orderObj = new Order();
 
