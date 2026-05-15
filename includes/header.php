@@ -81,15 +81,15 @@
                             <a href="#"><i class="bi bi-heart"></i><h6>Wishlist</h6></a>
                         </li>
                         <li>
-                            <a href="#"><i class="bi bi-cart3"></i><h6>Cart</h6></a>
+                            <a href="products.php"><i class="bi bi-cart3"></i><h6>Cart</h6></a>
                         </li>
                         <li>
                             <a href="customer_profile.php"><i class="bi bi-person-circle"></i><h6>Profile</h6></a>
                         </li>
 
                         <li>
-                            <a href><i class="bi bi-bell-fill"></i>
-                            <h6>Notifications</h6>
+                            <a href="about_us.php" ><i class="bi bi-info-circle"></i>
+                            <h6>About Us</h6>
                         </li>
                     </ul>
                 </div>
