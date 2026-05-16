@@ -1,7 +1,7 @@
 <?php
 include "includes/header.php";
 ?>
-<link rel="stylesheet" href="/SHOP360/assets/css/index.css">
+<link rel="stylesheet" href="assets/css/index.css">
 
 <!-- HERO SECTION -->
 <section class="hero-section py-5">
